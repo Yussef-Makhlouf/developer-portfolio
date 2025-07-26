@@ -2,14 +2,14 @@
   "name": "youssef-team-portfolio",
   "version": "0.1.0",
   "private": true,
-  "description": "موقع المطور الشخصي ليوسف والفريق - خبراء تطوير الويب المتكامل",
+  "description": "موقع المطور الشخصي لمســــار - خبراء تطوير الويب المتكامل",
   "keywords": [
     "portfolio",
     "web development",
     "react",
     "next.js",
     "arabic",
-    "يوسف والفريق",
+    "مســــار",
     "تطوير الويب"
   ],
   "author": "Youssef & Team",

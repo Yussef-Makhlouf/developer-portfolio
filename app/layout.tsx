@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: "Youssef & Team - Full Stack Web Development Experts | يوسف والفريق - خبراء تطوير الويب المتكامل",
+  title: "Youssef & Team - Full Stack Web Development Experts | مســــار - خبراء تطوير الويب المتكامل",
   description:
     "Professional web development services specializing in digital presence optimization and Google visibility. We help businesses achieve commanding online presence and exceptional brand recognition. | خدمات تطوير الويب الاحترافية المتخصصة في تحسين الحضور الرقمي وظهور جوجل. نساعد الشركات على تحقيق حضور قوي عبر الإنترنت واعتراف استثنائي بالعلامة التجارية.",
   keywords:

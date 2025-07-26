@@ -11,15 +11,15 @@ export function Testimonials() {
     {
       name: "سارة أحمد",
       role: "الرئيس التنفيذي، شركة التقنية المتقدمة",
-      avatar: "/placeholder.svg?height=60&width=60",
+      avatar: "/skills/react.png",
       content:
-        "يوسف وفريقه قدموا منصة تجارة إلكترونية استثنائية تجاوزت توقعاتنا. تحسين الأداء وتنفيذ تحسين محركات البحث أدى إلى زيادة 40% في الزيارات العضوية.",
+        "شركة مـســـار قدموا منصة تجارة إلكترونية استثنائية تجاوزت توقعاتنا. تحسين الأداء وتنفيذ تحسين محركات البحث أدى إلى زيادة 40% في الزيارات العضوية.",
       rating: 5,
     },
     {
       name: "محمد علي",
       role: "مؤسس، حلول رقمية",
-      avatar: "/placeholder.svg?height=60&width=60",
+      avatar: "/skills/react.png",
       content:
         "العمل مع هذا الفريق كان نقطة تحول لشركتنا. بنوا منصة SaaS قابلة للتطوير تتعامل مع آلاف المستخدمين بسلاسة. خبرتهم في تقنيات MEARN متميزة.",
       rating: 5,
@@ -27,7 +27,7 @@ export function Testimonials() {
     {
       name: "فاطمة حسن",
       role: "مديرة التسويق، شركة النمو",
-      avatar: "/placeholder.svg?height=60&width=60",
+      avatar: "/skills/react.png",
       content:
         "صفحات الهبوط التي أنشأوها لحملاتنا حسنت معدلات التحويل بشكل كبير. الاهتمام بالتفاصيل والتركيز على تحسين الأداء رائع.",
       rating: 5,
@@ -35,7 +35,7 @@ export function Testimonials() {
     {
       name: "أحمد محمود",
       role: "مالك مطعم",
-      avatar: "/placeholder.svg?height=60&width=60",
+      avatar: "/skills/react.png",
       content:
         "موقع مطعمنا الجديد مع نظام الطلب عبر الإنترنت حول أعمالنا. التصميم جميل والوظائف مثالية. أوصي بهم بشدة!",
       rating: 5,
@@ -43,7 +43,7 @@ export function Testimonials() {
     {
       name: "ليلى عبدالله",
       role: "مؤسسة شركة ناشئة",
-      avatar: "/placeholder.svg?height=60&width=60",
+      avatar: "/skills/react.png",
       content:
         "قدرة الفريق على فهم رؤيتنا وترجمتها إلى تطبيق ويب وظيفي وجميل كانت مثيرة للإعجاب. قدموا المشروع في الوقت المحدد وفي حدود الميزانية.",
       rating: 5,
@@ -51,7 +51,7 @@ export function Testimonials() {
     {
       name: "جمال محمد",
       role: "مالك منصة التعلم الإلكتروني",
-      avatar: "/placeholder.svg?height=60&width=60",
+      avatar: "/skills/react.png",
       content:
         "بنوا نظام إدارة التعلم الخاص بنا من الصفر بجميع الميزات التي نحتاجها. تكامل بث الفيديو ونظام إدارة المستخدمين يعملان بشكل مثالي.",
       rating: 5,
@@ -80,7 +80,7 @@ export function Testimonials() {
 
                 <div className={`flex items-center`}>
                   <Avatar className={`h-10 w-10 sm:h-12 sm:w-12`}>
-                    <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
+                    <AvatarImage src={testimonial.avatar || "/skills/next.png"} alt={testimonial.name} />
                     <AvatarFallback>
                       {testimonial.name
                         .split(" ")

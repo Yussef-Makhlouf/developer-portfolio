@@ -33,7 +33,7 @@ const createEmailTemplate = (data: {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>رسالة جديدة من موقع يوسف والفريق</title>
+      <title>رسالة جديدة من موقع مســــار</title>
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
@@ -448,7 +448,7 @@ const createEmailTemplate = (data: {
       <div class="container">
         <div class="header">
           <div class="header-content">
-            <div class="logo">يوسف والفريق</div>
+            <div class="logo">مســــار</div>
             <h1>رسالة جديدة من موقعنا</h1>
             <p>تم استلام رسالة جديدة من أحد الزوار</p>
             <div class="notification-badge">
@@ -505,8 +505,8 @@ const createEmailTemplate = (data: {
         </div>
         
         <div class="footer">
-          <p>هذه الرسالة تم إرسالها تلقائياً من نموذج الاتصال في موقع يوسف والفريق</p>
-          <p>© 2024 يوسف والفريق - جميع الحقوق محفوظة</p>
+          <p>هذه الرسالة تم إرسالها تلقائياً من نموذج الاتصال في موقع مســــار</p>
+          <p>© 2024 مســــار - جميع الحقوق محفوظة</p>
           <div class="footer-links">
             <a href="https://yussef-portfolio.vercel.app" class="footer-link">الموقع الرئيسي</a>
             <a href="mailto:yussef.ali.it@gmail.com" class="footer-link">تواصل معنا</a>
@@ -557,7 +557,7 @@ export async function POST(request: NextRequest) {
     
     // Email options
     const mailOptions = {
-      from: `"موقع يوسف والفريق" <${process.env.GMAIL_EMAIL}>`,
+      from: `"موقع مســــار" <${process.env.GMAIL_EMAIL}>`,
       to: 'yussef.ali.it@gmail.com',
       subject: `رسالة جديدة: ${subject}`,
       html: createEmailTemplate({
