@@ -35,7 +35,8 @@ const createEmailTemplate = (data: {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>رسالة جديدة من موقع يوسف والفريق</title>
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
         
         * {
           margin: 0;
@@ -44,32 +45,56 @@ const createEmailTemplate = (data: {
         }
         
         body {
-          font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           line-height: 1.6;
-          color: #1a1a1a;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+          color: #ffffff;
+          background: #000000;
           padding: 20px;
           min-height: 100vh;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+          background-size: 24px 24px;
+          background-position: center center;
+          position: relative;
+        }
+        
+        body::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+          pointer-events: none;
+          z-index: 1;
         }
         
         .container {
           max-width: 700px;
           margin: 0 auto;
-          background: rgba(255, 255, 255, 0.95);
+          background: rgba(0, 0, 0, 0.95);
           border-radius: 25px;
           overflow: hidden;
-          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          position: relative;
+          z-index: 2;
         }
         
         .header {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
           color: white;
           padding: 40px 30px;
           text-align: center;
           position: relative;
           overflow: hidden;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .header::before {
@@ -79,8 +104,11 @@ const createEmailTemplate = (data: {
           left: 0;
           right: 0;
           bottom: 0;
-          background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-          opacity: 0.3;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+          background-size: 20px 20px;
+          opacity: 0.5;
         }
         
         .header-content {
@@ -89,11 +117,12 @@ const createEmailTemplate = (data: {
         }
         
         .logo {
-          font-size: 32px;
+          font-family: 'TheYearofHandicrafts', 'Noto Sans Arabic', 'Arial', sans-serif;
+          font-size: 36px;
           font-weight: 700;
           margin-bottom: 15px;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-          background: linear-gradient(45deg, #fff, #f0f0f0);
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          background: linear-gradient(45deg, #ffffff, #e0e0e0);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -103,27 +132,88 @@ const createEmailTemplate = (data: {
           font-size: 32px;
           margin-bottom: 15px;
           font-weight: 600;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          color: #ffffff;
         }
         
         .header p {
           font-size: 18px;
-          opacity: 0.95;
+          opacity: 0.9;
           font-weight: 400;
+          color: #cccccc;
         }
         
         .notification-badge {
           display: inline-block;
-          background: rgba(255, 255, 255, 0.2);
-          padding: 8px 16px;
-          border-radius: 20px;
-          margin-top: 15px;
+          background: rgba(255, 255, 255, 0.1);
+          padding: 12px 24px;
+          border-radius: 25px;
+          margin-top: 20px;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #ffffff;
+          font-weight: 500;
         }
         
         .content {
           padding: 40px 30px;
+          background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .contact-info {
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+          color: white;
+          padding: 25px;
+          border-radius: 20px;
+          margin-bottom: 30px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .contact-info::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          background-size: 16px 16px;
+          opacity: 0.3;
+        }
+        
+        .contact-info h3 {
+          margin-bottom: 20px;
+          font-size: 22px;
+          font-weight: 600;
+          color: #ffffff;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .contact-details {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+          position: relative;
+          z-index: 2;
+        }
+        
+        .contact-detail {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          color: #cccccc;
+          padding: 8px 16px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .info-grid {
@@ -134,13 +224,14 @@ const createEmailTemplate = (data: {
         }
         
         .info-item {
-          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 20px;
-          border-radius: 15px;
-          border: 1px solid rgba(102, 126, 234, 0.1);
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+          padding: 25px;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
           position: relative;
           transition: all 0.3s ease;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
         }
         
         .info-item::before {
@@ -151,133 +242,111 @@ const createEmailTemplate = (data: {
           width: 4px;
           height: 100%;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          border-radius: 0 15px 15px 0;
+          border-radius: 0 20px 20px 0;
+        }
+        
+        .info-item::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+          background-size: 12px 12px;
+          opacity: 0.2;
         }
         
         .info-item:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          transform: translateY(-3px);
+          box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+          border-color: rgba(255, 255, 255, 0.2);
         }
         
         .info-label {
           font-weight: 600;
           color: #667eea;
-          margin-bottom: 8px;
+          margin-bottom: 10px;
           font-size: 14px;
           text-transform: uppercase;
           letter-spacing: 0.5px;
+          position: relative;
+          z-index: 2;
         }
         
         .info-value {
-          color: #1a1a1a;
+          color: #ffffff;
           font-size: 16px;
           font-weight: 500;
+          position: relative;
+          z-index: 2;
         }
         
         .message-section {
-          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 25px;
-          border-radius: 15px;
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+          padding: 30px;
+          border-radius: 20px;
           margin-bottom: 30px;
-          border: 1px solid rgba(102, 126, 234, 0.1);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .message-section::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+          background-size: 12px 12px;
+          opacity: 0.2;
         }
         
         .message-label {
-          font-weight: 600;
-          color: #667eea;
-          margin-bottom: 15px;
-          font-size: 18px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        
-        .message-label::before {
-          content: '💬';
-          font-size: 20px;
-        }
-        
-        .message-content {
-          background: white;
-          padding: 20px;
-          border-radius: 12px;
-          border: 1px solid #e9ecef;
-          white-space: pre-wrap;
-          line-height: 1.8;
-          font-size: 16px;
-          color: #333;
-          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-        
-        .skills-section {
-          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 25px;
-          border-radius: 15px;
-          margin-bottom: 30px;
-          border: 1px solid rgba(102, 126, 234, 0.1);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .skills-title {
           font-weight: 600;
           color: #667eea;
           margin-bottom: 20px;
           font-size: 18px;
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
+          position: relative;
+          z-index: 2;
         }
         
-        .skills-title::before {
-          content: '⚡';
-          font-size: 20px;
+        .message-label::before {
+          content: '💬';
+          font-size: 22px;
         }
         
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-          gap: 15px;
-          margin-top: 15px;
-        }
-        
-        .skill-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-          padding: 15px 10px;
-          background: white;
-          border-radius: 12px;
-          border: 1px solid #e9ecef;
-          transition: all 0.3s ease;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .skill-item:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .skill-icon {
-          width: 40px;
-          height: 40px;
-          object-fit: contain;
-        }
-        
-        .skill-name {
-          font-size: 10px;
-          font-weight: 500;
-          color: #666;
-          text-align: center;
+        .message-content {
+          background: rgba(0, 0, 0, 0.5);
+          padding: 25px;
+          border-radius: 15px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          white-space: pre-wrap;
+          line-height: 1.8;
+          font-size: 16px;
+          color: #ffffff;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+          position: relative;
+          z-index: 2;
         }
         
         .footer {
-          background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 30px;
+          background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+          padding: 35px 30px;
           text-align: center;
-          border-top: 1px solid #e9ecef;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
           position: relative;
+          overflow: hidden;
         }
         
         .footer::before {
@@ -286,77 +355,65 @@ const createEmailTemplate = (data: {
           top: 0;
           left: 50%;
           transform: translateX(-50%);
-          width: 60px;
+          width: 80px;
           height: 3px;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           border-radius: 2px;
         }
         
+        .footer::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+          background-size: 12px 12px;
+          opacity: 0.2;
+        }
+        
         .footer p {
-          color: #666;
+          color: #cccccc;
           font-size: 14px;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
+          position: relative;
+          z-index: 2;
         }
         
         .footer-links {
-          margin-top: 20px;
+          margin-top: 25px;
           display: flex;
           justify-content: center;
           gap: 20px;
           flex-wrap: wrap;
+          position: relative;
+          z-index: 2;
         }
         
         .footer-link {
           color: #667eea;
           text-decoration: none;
           font-weight: 500;
-          padding: 8px 16px;
-          border-radius: 20px;
+          padding: 12px 20px;
+          border-radius: 25px;
           background: rgba(102, 126, 234, 0.1);
+          border: 1px solid rgba(102, 126, 234, 0.2);
           transition: all 0.3s ease;
+          color: #ffffff;
         }
         
         .footer-link:hover {
           background: rgba(102, 126, 234, 0.2);
-          transform: translateY(-1px);
-        }
-        
-        .contact-info {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color: white;
-          padding: 20px;
-          border-radius: 15px;
-          margin-bottom: 25px;
-          text-align: center;
-        }
-        
-        .contact-info h3 {
-          margin-bottom: 15px;
-          font-size: 20px;
-          font-weight: 600;
-        }
-        
-        .contact-details {
-          display: flex;
-          justify-content: center;
-          gap: 30px;
-          flex-wrap: wrap;
-        }
-        
-        .contact-detail {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 14px;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
         
         @media (max-width: 600px) {
           .info-grid {
             grid-template-columns: 1fr;
-          }
-          
-          .skills-grid {
-            grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
           }
           
           .header {
@@ -370,6 +427,19 @@ const createEmailTemplate = (data: {
           .contact-details {
             flex-direction: column;
             gap: 15px;
+          }
+          
+          .footer-links {
+            flex-direction: column;
+            gap: 15px;
+          }
+          
+          .logo {
+            font-size: 28px;
+          }
+          
+          .header h1 {
+            font-size: 24px;
           }
         }
       </style>
@@ -432,8 +502,6 @@ const createEmailTemplate = (data: {
             <div class="message-label">محتوى الرسالة</div>
             <div class="message-content">${data.message}</div>
           </div>
-          
-   
         </div>
         
         <div class="footer">
