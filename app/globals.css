@@ -1,0 +1,502 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Arabic font */
+
+/* The Year of Handicrafts Font Family - Custom Arabic Font */
+@font-face {
+  font-family: 'TheYearofHandicrafts';
+  src: url('/fonts/TheYearofHandicrafts-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TheYearofHandicrafts';
+  src: url('/fonts/TheYearofHandicrafts-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TheYearofHandicrafts';
+  src: url('/fonts/TheYearofHandicrafts-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TheYearofHandicrafts';
+  src: url('/fonts/TheYearofHandicrafts-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TheYearofHandicrafts';
+  src: url('/fonts/TheYearofHandicrafts-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Enhanced Grid Patterns - Mobile Responsive with RTL support */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+    background-position: center center;
+  }
+
+  .bg-grid-pattern-dark {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+    background-position: center center;
+  }
+
+  .bg-grid-pattern-dots {
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 20px) clamp(16px, 4vw, 20px);
+    background-position: center center;
+  }
+
+  .bg-grid-pattern-dots-dark {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 20px) clamp(16px, 4vw, 20px);
+    background-position: center center;
+  }
+
+  /* Arabic-specific grid patterns */
+  .bg-grid-pattern-arabic {
+    background-image: 
+      linear-gradient(45deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px, 16px 16px, 16px 16px;
+    background-position: center center;
+  }
+
+  .bg-grid-pattern-arabic-dark {
+    background-image: 
+      linear-gradient(45deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px, 16px 16px, 16px 16px;
+    background-position: center center;
+  }
+
+  /* Animated Grid Pattern - Mobile Responsive with RTL support */
+  .bg-grid-animated {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+    background-position: center center;
+    animation: grid-move 20s linear infinite;
+  }
+
+  .bg-grid-animated-dark {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+    background-position: center center;
+    animation: grid-move 20s linear infinite;
+  }
+
+  /* Gradient Grid Pattern - Mobile Responsive with RTL support */
+  .bg-grid-gradient {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+    background-position: center center;
+  }
+
+  .bg-grid-gradient-dark {
+    background-image: 
+      linear-gradient(rgba(147, 197, 253, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(147, 197, 253, 0.08) 1px, transparent 1px);
+    background-size: clamp(16px, 4vw, 24px) clamp(16px, 4vw, 24px);
+    background-position: center center;
+  }
+
+  /* Hexagonal Grid Pattern - Mobile Responsive with RTL support */
+  .bg-grid-hex {
+    background-image: 
+      linear-gradient(60deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(150deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(30deg, rgba(0, 0, 0, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(0, 0, 0, 0.08) 75%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(60deg, rgba(0, 0, 0, 0.08) 10%, transparent 10.5%, transparent 90%, rgba(0, 0, 0, 0.08) 90%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(150deg, rgba(0, 0, 0, 0.08) 10%, transparent 10.5%, transparent 90%, rgba(0, 0, 0, 0.08) 90%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(30deg, rgba(0, 0, 0, 0.08) 10%, transparent 10.5%, transparent 90%, rgba(0, 0, 0, 0.08) 90%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(60deg, transparent 78%, rgba(0, 0, 0, 0.08) 78%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(150deg, transparent 78%, rgba(0, 0, 0, 0.08) 78%, rgba(0, 0, 0, 0.08)),
+      linear-gradient(30deg, transparent 78%, rgba(0, 0, 0, 0.08) 78%, rgba(0, 0, 0, 0.08));
+    background-size: clamp(16px, 4vw, 20px) clamp(16px, 4vw, 20px);
+    background-position: center center;
+  }
+
+  .bg-grid-hex-dark {
+    background-image: 
+      linear-gradient(60deg, rgba(255, 255, 255, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(150deg, rgba(255, 255, 255, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(30deg, rgba(255, 255, 255, 0.08) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(60deg, rgba(255, 255, 255, 0.08) 10%, transparent 10.5%, transparent 90%, rgba(255, 255, 255, 0.08) 90%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(150deg, rgba(255, 255, 255, 0.08) 10%, transparent 10.5%, transparent 90%, rgba(255, 255, 255, 0.08) 90%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(30deg, rgba(255, 255, 255, 0.08) 10%, transparent 10.5%, transparent 90%, rgba(255, 255, 255, 0.08) 90%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(60deg, transparent 78%, rgba(255, 255, 255, 0.08) 78%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(150deg, transparent 78%, rgba(255, 255, 255, 0.08) 78%, rgba(255, 255, 255, 0.08)),
+      linear-gradient(30deg, transparent 78%, rgba(255, 255, 255, 0.08) 78%, rgba(255, 255, 255, 0.08));
+    background-size: clamp(16px, 4vw, 20px) clamp(16px, 4vw, 20px);
+    background-position: center center;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Font utilities */
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .font-arabic {
+    font-family: 'Noto Sans Arabic', 'Arial', sans-serif;
+  }
+
+  .font-handicrafts {
+    font-family: 'TheYearofHandicrafts', 'Noto Sans Arabic', 'Arial', 'Tahoma', sans-serif;
+  }
+
+  .font-handicrafts-black {
+    font-family: 'TheYearofHandicrafts', 'Noto Sans Arabic', 'Arial', 'Tahoma', sans-serif;
+    font-weight: 900;
+  }
+
+  /* Mobile-specific grid improvements with RTL support */
+  @media (max-width: 640px) {
+    .bg-grid-pattern,
+    .bg-grid-pattern-dark,
+    .bg-grid-animated,
+    .bg-grid-animated-dark,
+    .bg-grid-gradient,
+    .bg-grid-gradient-dark {
+      background-size: 16px 16px;
+      background-position: center center;
+    }
+    
+    .bg-grid-pattern-dots,
+    .bg-grid-pattern-dots-dark {
+      background-size: 16px 16px;
+      background-position: center center;
+    }
+    
+    .bg-grid-hex,
+    .bg-grid-hex-dark {
+      background-size: 16px 16px;
+      background-position: center center;
+    }
+
+    .bg-grid-pattern-arabic,
+    .bg-grid-pattern-arabic-dark {
+      background-size: 24px 24px, 24px 24px, 12px 12px, 12px 12px;
+      background-position: center center;
+    }
+  }
+
+  /* Tablet-specific grid improvements with RTL support */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .bg-grid-pattern,
+    .bg-grid-pattern-dark,
+    .bg-grid-animated,
+    .bg-grid-animated-dark,
+    .bg-grid-gradient,
+    .bg-grid-gradient-dark {
+      background-size: 20px 20px;
+      background-position: center center;
+    }
+    
+    .bg-grid-pattern-dots,
+    .bg-grid-pattern-dots-dark {
+      background-size: 18px 18px;
+      background-position: center center;
+    }
+    
+    .bg-grid-hex,
+    .bg-grid-hex-dark {
+      background-size: 18px 18px;
+      background-position: center center;
+    }
+
+    .bg-grid-pattern-arabic,
+    .bg-grid-pattern-arabic-dark {
+      background-size: 28px 28px, 28px 28px, 14px 14px, 14px 14px;
+      background-position: center center;
+    }
+  }
+}
+
+/* Grid Animation - Mobile Optimized with RTL support */
+@keyframes grid-move {
+  0% {
+    background-position: center center;
+  }
+  100% {
+    background-position: center center;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* RTL support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Mobile-specific improvements with RTL support */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.5rem;
+  }
+  
+  .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 2rem;
+  }
+
+  /* Mobile-specific grid opacity adjustments */
+
+
+}
+
+/* Improve scrolling on mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 80px;
+  }
+  
+  /* Better focus states for mobile */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Mobile-specific container adjustments */
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* RTL specific spacing adjustments */
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+  margin-right: calc(2rem * var(--tw-space-x-reverse));
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+/* Floating Animation Styles */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes float-medium {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+@keyframes float-fast {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  40% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+  60% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  80% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 4s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 3s ease-in-out infinite;
+}
