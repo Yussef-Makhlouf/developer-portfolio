@@ -2,38 +2,25 @@
 
 import type React from "react"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter, Instagram } from "lucide-react"
 import { texts } from "@/lib/texts"
+import { useContactForm } from "@/hooks/use-contact-form"
+import { FormError } from "@/components/ui/form-error"
 
 export function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    toast({
-      title: texts.messageSent,
-      description: texts.messageResponse,
-    })
-
-    setIsSubmitting(false)
-
-    // Reset form
-    const form = e.target as HTMLFormElement
-    form.reset()
-  }
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    handleInputChange,
+    handleBlur,
+    handleSubmit,
+  } = useContactForm()
 
   return (
     <section id="contact" className="py-20 bg-muted/30 bg-grid-pattern ">
@@ -83,7 +70,6 @@ export function Contact() {
 
             {/* Social Media Links */}
             <div className="text-center" dir="ltr" >
-              {/* <h4 className="font-semibold font-handicrafts  sm:text-lg mb-4 text-muted-foreground text-left">تابعنا على وسائل التواصل الاجتماعي</h4> */}
               <div className="flex justify-center lg:justify-end space-x-3 sm:space-x-4">
                 <a 
                   href="https://linkedin.com" 
@@ -130,32 +116,83 @@ export function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="font-handicrafts text-sm sm:text-base">{texts.firstName}</Label>
-                    <Input id="firstName" name="firstName" required className="font-handicrafts" />
+                    <Input 
+                      id="firstName" 
+                      name="firstName" 
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      onBlur={handleBlur}
+                      className={`font-handicrafts ${errors.firstName ? 'border-red-500 focus:border-red-500' : ''}`}
+                      dir="rtl"
+                    />
+                    <FormError error={errors.firstName} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName" className="font-handicrafts text-sm sm:text-base">{texts.lastName}</Label>
-                    <Input id="lastName" name="lastName" required className="font-handicrafts" />
+                    <Input 
+                      id="lastName" 
+                      name="lastName" 
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      onBlur={handleBlur}
+                      className={`font-handicrafts ${errors.lastName ? 'border-red-500 focus:border-red-500' : ''}`}
+                      dir="rtl"
+                    />
+                    <FormError error={errors.lastName} />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="font-handicrafts text-sm sm:text-base">{texts.email}</Label>
-                  <Input id="email" name="email" type="email" required className="font-handicrafts" />
+                  <Input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    className={`font-handicrafts ${errors.email ? 'border-red-500 focus:border-red-500' : ''}`}
+                    dir="ltr"
+                  />
+                  <FormError error={errors.email} />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="font-handicrafts text-sm sm:text-base">{texts.subject}</Label>
-                  <Input id="subject" name="subject" required className="font-handicrafts" />
+                  <Input 
+                    id="subject" 
+                    name="subject" 
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    className={`font-handicrafts ${errors.subject ? 'border-red-500 focus:border-red-500' : ''}`}
+                    dir="rtl"
+                  />
+                  <FormError error={errors.subject} />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="font-handicrafts text-sm sm:text-base">{texts.message}</Label>
-                  <Textarea id="message" name="message" rows={4} required placeholder={texts.messagePlaceholder} className="font-handicrafts" />
+                  <Textarea 
+                    id="message" 
+                    name="message" 
+                    rows={4} 
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    placeholder={texts.messagePlaceholder} 
+                    className={`font-handicrafts ${errors.message ? 'border-red-500 focus:border-red-500' : ''}`}
+                    dir="rtl"
+                  />
+                  <FormError error={errors.message} />
                 </div>
 
                 <Button type="submit" className="w-full font-handicrafts" disabled={isSubmitting}>
                   {isSubmitting ? (
-                    texts.sending
+                    <div className="flex items-center">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      {texts.sending}
+                    </div>
                   ) : (
                     <>
                       <Send className="h-4 w-4 mr-2" />
