@@ -204,8 +204,8 @@ export function Header() {
               >
                 <div className={`flex items-center justify-between ${
                   activeSection === item.id
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                    ? "text-primary "
+                    : "text-muted-foreground hover:text-primary "
                 }`}>
                   <span>{item.text}</span>
                   {activeSection === item.id && (
