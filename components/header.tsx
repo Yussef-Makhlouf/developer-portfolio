@@ -57,11 +57,11 @@ export function Header() {
 
   const navItems = [
     {key:"home", id: "home", text: "الرئيسية"},
-    { key: "about", id: "about", text: texts.about },
-    { key: "services", id: "services", text: texts.services },
-    { key: "portfolio", id: "portfolio", text: texts.portfolio },
-    { key: "testimonials", id: "testimonials", text: texts.testimonials },
-    { key: "contact", id: "contact", text: texts.contact },
+    { key: "about", id: "about", text: texts.about, href: "/#about" },
+    { key: "services", id: "services", text: texts.services, href: "/services" },
+    { key: "portfolio", id: "portfolio", text: texts.portfolio, href: "/#portfolio" },
+    { key: "testimonials", id: "testimonials", text: texts.testimonials, href: "/#testimonials" },
+    { key: "contact", id: "contact", text: texts.contact, href: "/#contact" },
   ]
 
   return (
@@ -104,19 +104,35 @@ export function Header() {
             <div className="flex items-center space-x-reverse space-x-8">
               {navItems.map((item) => (
                 <div key={item.key} className="relative group">
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className={`relative px-4 py-2 text-sm font-medium font-handicrafts transition-all duration-300 rounded-lg ${
-                      activeSection === item.id
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                    }`}
-                  >
-                    {item.text}
-                    <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 transition-transform duration-300 ${
-                      activeSection === item.id ? "scale-x-100" : "group-hover:scale-x-100"
-                    }`}></div>
-                  </button>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className={`relative px-4 py-2 text-sm font-medium font-handicrafts transition-all duration-300 rounded-lg inline-block ${
+                        activeSection === item.id
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                      }`}
+                    >
+                      {item.text}
+                      <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 transition-transform duration-300 ${
+                        activeSection === item.id ? "scale-x-100" : "group-hover:scale-x-100"
+                      }`}></div>
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={`relative px-4 py-2 text-sm font-medium font-handicrafts transition-all duration-300 rounded-lg ${
+                        activeSection === item.id
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                      }`}
+                    >
+                      {item.text}
+                      <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 transition-transform duration-300 ${
+                        activeSection === item.id ? "scale-x-100" : "group-hover:scale-x-100"
+                      }`}></div>
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -127,19 +143,35 @@ export function Header() {
             <div className="flex items-center space-x-reverse space-x-4">
               {navItems.slice(0, 3).map((item) => (
                 <div key={item.key} className="relative group">
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className={`relative px-3 py-2 text-xs font-medium font-handicrafts transition-all duration-300 rounded-lg ${
-                      activeSection === item.id
-                        ? "text-primary bg-primary/10"
-                        : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                    }`}
-                  >
-                    {item.text}
-                    <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 transition-transform duration-300 ${
-                      activeSection === item.id ? "scale-x-100" : "group-hover:scale-x-100"
-                    }`}></div>
-                  </button>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className={`relative px-3 py-2 text-xs font-medium font-handicrafts transition-all duration-300 rounded-lg inline-block ${
+                        activeSection === item.id
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                      }`}
+                    >
+                      {item.text}
+                      <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 transition-transform duration-300 ${
+                        activeSection === item.id ? "scale-x-100" : "group-hover:scale-x-100"
+                      }`}></div>
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={`relative px-3 py-2 text-xs font-medium font-handicrafts transition-all duration-300 rounded-lg ${
+                        activeSection === item.id
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                      }`}
+                    >
+                      {item.text}
+                      <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-600 transform scale-x-0 transition-transform duration-300 ${
+                        activeSection === item.id ? "scale-x-100" : "group-hover:scale-x-100"
+                      }`}></div>
+                    </button>
+                  )}
                 </div>
               ))}
               <div className="relative group">
@@ -149,13 +181,23 @@ export function Header() {
                 </button>
                 <div className="absolute top-full right-0 mt-2 w-32 bg-background/95 backdrop-blur-md border border-border/50 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   {navItems.slice(3).map((item) => (
-                    <button
-                      key={item.key}
-                      onClick={() => scrollToSection(item.id)}
-                      className="block w-full px-3 py-2 text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 text-right font-handicrafts transition-all duration-200"
-                    >
-                      {item.text}
-                    </button>
+                    item.href ? (
+                      <Link
+                        key={item.key}
+                        href={item.href}
+                        className="block w-full px-3 py-2 text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 text-right font-handicrafts transition-all duration-200"
+                      >
+                        {item.text}
+                      </Link>
+                    ) : (
+                      <button
+                        key={item.key}
+                        onClick={() => scrollToSection(item.id)}
+                        className="block w-full px-3 py-2 text-xs text-muted-foreground hover:text-primary hover:bg-primary/5 text-right font-handicrafts transition-all duration-200"
+                      >
+                        {item.text}
+                      </button>
+                    )
                   ))}
                 </div>
               </div>
@@ -194,25 +236,46 @@ export function Header() {
         }`}>
           <div className="px-2 pt-2 pb-4 space-y-1 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg rounded-b-lg">
             {navItems.map((item, index) => (
-              <button
-                key={item.key}
-                onClick={() => scrollToSection(item.id)}
-                className={`block px-4 py-3 text-base font-medium font-handicrafts rounded-lg transition-all duration-300 w-full text-right transform ${
-                  isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className={`flex items-center justify-between ${
-                  activeSection === item.id
-                    ? "text-primary "
-                    : "text-muted-foreground hover:text-primary "
-                }`}>
+              item.href ? (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  className={`block px-4 py-3 text-base font-medium font-handicrafts rounded-lg transition-all duration-300 w-full text-right transform ${
+                    isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <div className={`flex items-center justify-between ${
+                    activeSection === item.id
+                      ? "text-primary "
+                      : "text-muted-foreground hover:text-primary "
+                  }`}>
+                    <span>{item.text}</span>
+                    <ChevronDown className="h-4 w-4 rotate-90" />
+                  </div>
+                </Link>
+              ) : (
+                <button
+                  key={item.key}
+                  onClick={() => { scrollToSection(item.id); setIsMobileMenuOpen(false); }}
+                  className={`block px-4 py-3 text-base font-medium font-handicrafts rounded-lg transition-all duration-300 w-full text-right transform ${
+                    isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div className={`flex items-center justify-between ${
+                    activeSection === item.id
+                      ? "text-primary "
+                      : "text-muted-foreground hover:text-primary "
+                  }`}>
                   <span>{item.text}</span>
                   {activeSection === item.id && (
                     <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                   )}
                 </div>
-              </button>
+                              </button>
+              )
             ))}
           </div>
         </div>

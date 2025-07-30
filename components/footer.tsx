@@ -68,7 +68,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link 
-                  href="#" 
+                  href="/services/web-app-development" 
                   className="group flex items-center text-sm text-muted-foreground hover:text-primary transition-all duration-300 font-handicrafts"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -79,7 +79,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="/services/ecommerce" 
                   className="group flex items-center text-sm text-muted-foreground hover:text-primary transition-all duration-300 font-handicrafts"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -90,7 +90,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="/services/seo-optimization" 
                   className="group flex items-center text-sm text-muted-foreground hover:text-primary transition-all duration-300 font-handicrafts"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -101,7 +101,7 @@ export function Footer() {
               </li>
               <li>
                 <Link 
-                  href="#" 
+                  href="/services/website-redesign" 
                   className="group flex items-center text-sm text-muted-foreground hover:text-primary transition-all duration-300 font-handicrafts"
                 >
                   <span className="group-hover:translate-x-1 transition-transform duration-300">
